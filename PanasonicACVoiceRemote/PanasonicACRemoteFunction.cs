@@ -13,23 +13,21 @@ using System.Text;
 using PanasonicACVoiceRemote.Model;
 using System.Net;
 
-
-
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
-[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.LambdaJsonSerializer))]
+[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
 namespace PanasonicACVoiceRemote
 {
-    public class Function
+    public class PanasonicACRemoteFunction
     {
         private HttpClient _httpClient;
 
         //private readonly string devUrl = "http://acremote.dev.nedevski.com/ACRemote.php";
         private readonly string raspberryUrl = "http://plovdiv.nedevski.com:10000/ACRemote/";
 
-        private readonly string authToken = "d3120232-1fad-4a91-a40a-724a9e142c07";
+        private readonly string authToken = "d3120232-1fad-4a91-a40a-724a9e142c07-mock";
 
-        public Function()
+        public PanasonicACRemoteFunction()
         {
             _httpClient = new HttpClient();
 
@@ -37,7 +35,7 @@ namespace PanasonicACVoiceRemote
             _httpClient.DefaultRequestHeaders.Add("Token", authToken);
         }
 
-        public async Task<SkillResponse> FunctionHandler(SkillRequest input, ILambdaContext context)
+        public async Task<SkillResponse> ACRemoteHandler(SkillRequest input, ILambdaContext context)
         {
             ILambdaLogger log = context.Logger;
             log.LogLine($"Skill Request Object:" + JsonConvert.SerializeObject(input));
