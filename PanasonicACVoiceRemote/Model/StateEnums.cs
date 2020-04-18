@@ -7,46 +7,46 @@ namespace PanasonicACVoiceRemote.Model
     public enum Power
     {
         NotSet,
-        Off,
-        On
-    }
-
-    public enum Swing
-    {
-        NotSet,
-        High,
-        SemiHigh,
-        Middle,
-        SemiLow,
-        Low,
-        Auto
-    }
-
-    public enum Modifier
-    {
-        NotSet,
-        Quiet,
-        Powerful,
-        Normal
+        On,
+        Off
     }
 
     public enum Mode
     {
         NotSet,
+        Auto,
         Hot,
         Cold,
-        Dry,
-        Auto
+        Dry
     }
 
     public enum Fan
     {
         NotSet,
+        Auto,
         One,
         Two,
         Three,
         Four,
         Five,
-        Auto
+    }
+    
+    public enum Swing
+    {
+        NotSet,
+        Auto,
+        High,
+        SemiHigh,
+        Middle,
+        SemiLow,
+        Low
+    }
+    
+    public enum Modifier
+    {
+        NotSet,
+        Normal,
+        Quiet,
+        Powerful
     }
 }
