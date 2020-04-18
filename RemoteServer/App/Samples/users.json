@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "name": "AlexaAWSLambda",
+      "pass": "pass",
+      "token": "guid"
+    },
+    {
+      "name": "Nikola",
+      "pass": "pass",
+      "token": "guid"
+    }
+  ]
+}
