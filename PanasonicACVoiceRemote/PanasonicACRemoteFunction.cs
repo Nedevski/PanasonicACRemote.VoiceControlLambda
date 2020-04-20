@@ -22,16 +22,15 @@ namespace PanasonicACVoiceRemote
     {
         private HttpClient _httpClient;
 
-        //private readonly string devUrl = "http://acremote.dev.nedevski.com/ACRemote.php";
-        private readonly string raspberryUrl = "http://plovdiv.nedevski.com:10000/ACRemote/";
-
-        private readonly string authToken = "d3120232-1fad-4a91-a40a-724a9e142c07-mock";
+        //private readonly string serverUrl = Environment.GetEnvironmentVariable("SERVER_URL_DEV");
+        private readonly string serverUrl = Environment.GetEnvironmentVariable("SERVER_URL_PROD");
+        private readonly string authToken = Environment.GetEnvironmentVariable("SERVER_AUTH_TOKEN");
 
         public PanasonicACRemoteFunction()
         {
             _httpClient = new HttpClient();
 
-            _httpClient.BaseAddress = new Uri(raspberryUrl);
+            _httpClient.BaseAddress = new Uri(serverUrl);
             _httpClient.DefaultRequestHeaders.Add("Token", authToken);
         }
 
