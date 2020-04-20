@@ -1,5 +1,5 @@
 <?php
-require_once("../App/Core.php"));
+require_once("../App/Core.php");
 
 $token = '';
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ch = curl_init();
         $timeout = 3;
         $url = $baseUrl . $command;
-
+        
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);

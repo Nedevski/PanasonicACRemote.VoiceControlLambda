@@ -1,5 +1,5 @@
 <?php
-require_once("../App/Core.php"));
+require_once("../App/Core.php");
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo 'Only POST requests supported';

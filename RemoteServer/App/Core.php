@@ -7,7 +7,7 @@ $stateJsonPath =    __DIR__ . '/DB/acRemoteState.json';
 $credsJsonPath =    __DIR__ . '/DB/acRemoteCredentials.json';
 
 // Get credentials
-$creds = json_decode(file_get_contents($stateJsonPath), true);
+$creds = json_decode(file_get_contents($credsJsonPath), true);
 $baseUrl = $creds['url'];
 $authToken = $creds['token'];
 
