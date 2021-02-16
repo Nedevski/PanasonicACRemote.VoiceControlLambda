@@ -63,14 +63,14 @@ namespace PanasonicACVoiceRemote
                             var response = await _httpClient.GetAsync("/");
                             ACState status = JsonConvert.DeserializeObject<ACState>(await response.Content.ReadAsStringAsync());
 
-                            var voiceResponse = $"The AC is {status.Power}. It's set to ${status.Temperature} degrees on ${status.Mode} mode.";
+                            var voiceResponse = $"The AC is {status.State}. It's set to {status.Temp} degrees on {status.Mode} mode.";
 
                             if (status.Modifiers != Modifier.NotSet)
                             {
-                                voiceResponse += $" The ${status.Modifiers} setting is on.";
+                                voiceResponse += $" The {status.Modifiers} setting is on.";
                             }
 
-                            if (status.Power == Power.Off)
+                            if (status.State == State.Off)
                             {
                                 voiceResponse += " Do you want to turn it on?";
                                 return ResponseBuilder.Ask(voiceResponse, new Reprompt("Do you want to turn it on?"));
@@ -78,7 +78,7 @@ namespace PanasonicACVoiceRemote
                             else
                             {
                                 string cardText = string.Concat(voiceResponse,
-                                    $" Fan is set to ${status.Fan}, swing position is set to ${status.Swing} and the fan modifier is ${status.Modifiers}.");
+                                    $" Fan is set to {status.Fan}, swing position is set to {status.Swing} and the fan modifier is {status.Modifiers}.");
 
                                 return ResponseBuilder.TellWithCard(voiceResponse, "AC Status", cardText);
                             }
@@ -88,7 +88,7 @@ namespace PanasonicACVoiceRemote
                         {
                             ACState state = new ACState()
                             {
-                                Power = Power.On
+                                State = State.On
                             };
 
                             var response = await _httpClient.PostAsync("/", state.AsJson());
@@ -101,7 +101,7 @@ namespace PanasonicACVoiceRemote
                         {
                             ACState state = new ACState()
                             {
-                                Power = Power.Off
+                                State = State.Off
                             };
 
                             var response = await _httpClient.PostAsync("/", state.AsJson());
@@ -133,8 +133,8 @@ namespace PanasonicACVoiceRemote
 
                             ACState state = new ACState()
                             {
-                                Power = Power.On,
-                                Temperature = temp,
+                                State = State.On,
+                                Temp = temp,
                             };
 
                             var response = await _httpClient.PostAsync("/", state.AsJson());
@@ -209,7 +209,7 @@ namespace PanasonicACVoiceRemote
 
                             ACState state = new ACState()
                             {
-                                Power = Power.On,
+                                State = State.On,
                                 Swing = swing
                             };
 

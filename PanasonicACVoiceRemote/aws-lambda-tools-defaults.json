@@ -6,9 +6,9 @@
         "dotnet lambda help",
         "All the command line options for the Lambda command can be specified in this file."
     ],
-    "profile"     : "apex-deploy",
+    "profile"     : "default",
     "region"      : "us-east-1",
-    "configuration" : "Release",
+    "configuration" : "Debug",
     "framework"     : "netcoreapp2.1",
     "function-runtime" : "dotnetcore2.1",
     "function-memory-size" : 128,
@@ -17,5 +17,8 @@
     "function-name"        : "PanasonicACVoiceRemoteCore",
     "function-role"        : "arn:aws:iam::208992798551:role/ApexDeployTest_lambda_function",
     "tracing-mode"         : "PassThrough",
-    "environment-variables" : ""
+    "environment-variables" : "\"SERVER_URL_PROD\"=\"http://acremote.nedevski.com/\";\"SERVER_AUTH_TOKEN\"=\"d94a34b6-2890-4bb3-a11c-ed981f786a91\"",
+    "function-description"  : "",
+    "package-type"          : "Zip",
+    "image-tag"             : ""
 }

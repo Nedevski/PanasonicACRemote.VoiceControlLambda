@@ -2,9 +2,14 @@
   "profiles": {
     "Mock Lambda Test Tool": {
       "commandName": "Executable",
-      "executablePath": "C:\\Users\\%USERNAME%\\.dotnet\\tools\\dotnet-lambda-test-tool-2.1.exe",
+      "executablePath": "%USERPROFILE%\\.dotnet\\tools\\dotnet-lambda-test-tool-2.1.exe",
       "commandLineArgs": "--port 5050",
-      "workingDirectory": ".\\bin\\$(Configuration)\\netcoreapp2.1"
+      "workingDirectory": ".\\bin\\$(Configuration)\\netcoreapp2.1",
+      "environmentVariables": {
+        "SERVER_URL_PROD": "http://acremote.nedevski.com/",
+        "SERVER_AUTH_TOKEN": "d94a34b6-2890-4bb3-a11c-ed981f786a91"
+      }
     }
+
   }
 }

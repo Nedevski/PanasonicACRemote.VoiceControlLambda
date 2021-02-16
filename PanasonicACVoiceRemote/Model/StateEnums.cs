@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PanasonicACVoiceRemote.Model
 {
-    public enum Power
+    public enum State
     {
         NotSet,
         On,
